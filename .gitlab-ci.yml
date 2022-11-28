@@ -1,19 +1,16 @@
 image: node:19.1.0
 
-cache:
-  paths:
+pages:
+  cache:
+    paths:
     - node_modules/
 
-before_script:
-  - npm install hexo-cli -g
-  - test -e package.json && npm install
-  - hexo generate
-
-pages:
   script:
-    - hexo generate
+  - npm install hexo-cli -g
+  - npm install
+  - hexo deploy
   artifacts:
     paths:
-      - public
+    - public
   only:
-    - master
+  - master
