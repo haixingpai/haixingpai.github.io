@@ -1,19 +1,19 @@
-image: node:6.11.2
-
-cache:
-  paths:
-    - node_modules/
-
+# The Docker image that will be used to build your app
+image: node:19.1.0
+# Functions that should be executed before the build script is run
 before_script:
   - npm install hexo-cli -g
-  - test -e package.json && npm install
+  - test -e package.json
+  - npm install
   - hexo generate
-
 pages:
   script:
     - hexo generate
   artifacts:
     paths:
+      # The folder that contains the files to be exposed at the Page URL
       - public
-  only:
-    - master
+  rules:
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
