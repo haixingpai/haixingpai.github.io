@@ -1,4 +1,4 @@
-image: node:4.2.2
+image: node:6.11.2
 
 pages:
   cache:
@@ -7,7 +7,12 @@ pages:
 
   script:
   - npm install hexo-cli -g
-  - npm install
+  - npm install hexo-generator-feed --save
+  - npm install hexo-generator-searchdb --save
+  - npm install hexo-generator-restful --save
+  - npm install hexo-generator-sitemap --save
+  - npm install hexo-generator-baidu-sitemap --save
+
   - hexo deploy
   artifacts:
     paths:
