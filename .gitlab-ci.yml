@@ -1,5 +1,3 @@
-image: busybox
-
 pages:
   stage: deploy
   script:
