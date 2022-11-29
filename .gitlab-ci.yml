@@ -1,7 +1,7 @@
 pages:
   stage: deploy
   script:
-    - echo "The site will be deployed to $CI_PAGES_URL"
+    - "curl -X POST --fail -F token=glptt-21c75b96a83aa60a79ecd41cb467eb33ed33faa9 -F ref=master https://gitlab.com/api/v4/projects/41402466/trigger/pipeline"
   artifacts:
     paths:
       - public
