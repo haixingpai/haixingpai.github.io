@@ -1,9 +1,0 @@
-pages:
-  stage: deploy
-  script:
-    - "curl -X POST --fail -F token=glptt-21c75b96a83aa60a79ecd41cb467eb33ed33faa9 -F ref=master https://gitlab.com/api/v4/projects/41402466/trigger/pipeline"
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
